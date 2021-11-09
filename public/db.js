@@ -1,3 +1,8 @@
+
+let db;
+
+const request = indexedDB.open("budget", 1);
+
 export function checkForIndexedDb() {
   if (!window.indexedDB) {
     console.log("Your browser doesn't support a stable version of IndexedDB.");

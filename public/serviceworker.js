@@ -9,21 +9,25 @@ const FILES_TO_CACHE = [
   "/icons/icon-512x512.png"
 ];
 
-const PRECACHE = 'precache-v1';
+const CACHE_NAME = 'static-cache-v2';
 const RUNTIME = 'runtime';
+const DATA_CACHE_NAME = 'data-cache-v1';
 
+//Installation
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches
-      ,open(PRECACHE)
+      .open(CACHE_NAME)
       .then((cache) => cache.addAll(FILES_TO_CACHE))
-      .then(self.skipWaiting())
+      
   );
+  self.skipWaiting()
 });
 
 //Clean up old caches
+//Activation
 self.addEventListener('activate', (event) => {
-  const currentCaches = [PRECACHE, RUNTIME];
+  const currentCaches = [CACHE_NAME, RUNTIME];
   event.waitUntil(
     caches
       .keys()
@@ -41,6 +45,7 @@ self.addEventListener('activate', (event) => {
   );
 });
 
+//fetch
 self.addEventListener('fetch', (event) => {
   if (event.request.url.startsWith(self.location.origin)) {
     event.respondWith(
