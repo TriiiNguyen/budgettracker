@@ -21,7 +21,7 @@ npm install
 
 ## Usage
 
-![image](../budgettracker/public/BudgetTracker.png)
+![image](./public/BudgetTracker.png)
 
 ## Credits
 
