@@ -21,7 +21,7 @@ npm install
 
 ## Usage
 
-![alt text](assets/images/screenshot.png)
+![EXAMPLE](../budgettracker/public/BudgetTracker.png)
 
 ## Credits
 
